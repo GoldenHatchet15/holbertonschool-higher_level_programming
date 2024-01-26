@@ -33,7 +33,7 @@ This project demonstrates the use of imports, modules, and command-line argument
 - `4-hidden_discovery.py`: Prints all names defined by a compiled module.
 - `5-variable_load.py`: Imports and prints the value of a variable from a file.
 
-##Author
+## Author
 
 Raphael Santos Jimenez
 
