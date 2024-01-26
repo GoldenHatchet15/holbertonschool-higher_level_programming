@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def main():
     num_args = len(sys.argv) - 1  # Subtract 1 to exclude the script name
     if num_args == 0:
@@ -12,9 +13,8 @@ def main():
 
     for i in range(1, len(sys.argv)):
         print("{}: {}".format(i, sys.argv[i]))
-    
+
+
 if __name__ == "__main__":
     """Print the number of and list of arguments."""
     main()
-
-
