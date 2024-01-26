@@ -37,9 +37,9 @@ This project demonstrates the use of imports, modules, and command-line argument
 
 Each script can be run on a terminal using Python3. For example:
 
-```bash
+```
 ./0-add.py 
-
+```
 
 ## Author
 
