@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import sys
+
+
+# This function sums all command-line arguments and prints the total.
+def main():
+    # Summing all arguments converted to integers.
+    # Each argument in sys.argv is converted to an integer.
+    # sys.argv[1:] skips script's name and includes only the actual arguments.
+    total = sum(int(arg) for arg in sys.argv[1:])
+    # Print the total using string's format method.
+    print("{}".format(total))
+
+
+# This checks if the script is being run directly and not imported.
+if __name__ == "__main__":
+    # Prints the result of the addition of all arguments.
+    main()
