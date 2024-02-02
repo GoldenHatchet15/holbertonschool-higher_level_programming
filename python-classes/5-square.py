@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Defines a class Square with a private instance attribute size with getter and setter, and a method to print the square."""
+"""Defines a class Square
+with a private instance attribute size
+with getter and setter,
+and a method to print the square."""
 
 
 class Square:
@@ -7,7 +10,7 @@ class Square:
 
     def __init__(self, size=0):
         """Initializes a new Square.
-        
+
         Args:
             size (int): The size of the new square.
         """
@@ -21,10 +24,10 @@ class Square:
     @size.setter
     def size(self, value):
         """Sets the size of the square.
-        
+
         Args:
             value (int): The new size of the square.
-        
+
         Raises:
             TypeError: If value is not an integer.
             ValueError: If value is less than 0.
