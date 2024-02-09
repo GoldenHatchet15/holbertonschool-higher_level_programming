@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+"""
+This module defines the Rectangle class
+with initialization, area, perimeter calculation,
+and a string representation method to visualize
+the rectangle using "#" characters.
+"""
+
+
 class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
