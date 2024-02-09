@@ -7,6 +7,7 @@ or methods implemented yet. It serves as a foundation for future
 implementations where properties and behaviors of a rectangle can be defined.
 """
 
+
 class Rectangle:
     """An empty class Rectangle that defines a rectangle"""
     pass
