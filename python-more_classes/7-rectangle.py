@@ -81,7 +81,6 @@ class Rectangle:
         return 2 * (self._width + self._height)
 
     def __str__(self):
-
         """
         Returns a string representation of the rectangle using
         the specified symbol(s).
@@ -91,8 +90,11 @@ class Rectangle:
         """
         if self._width == 0 or self._height == 0:
             return ""
-        symbol = str(Rectangle.print_symbol)
-        line = symbol * self._width
+
+        # Check for instance-level print_symbol first
+        symbol = getattr(self, 'print_symbol', Rectangle.print_symbol)
+
+        line = str(symbol) * self._width
         body = (line + "\n") * (self._height - 1) + line
         return body
 
