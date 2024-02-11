@@ -5,8 +5,8 @@ that dynamically adds command-line arguments to a persistent list stored in
 a JSON file ("add_item.json").
 
 Utilizing the previously defined functions 'save_to_json_file' and
-'load_from_json_file' from modules '5-save_to_json_file' and
-'6-load_from_json_file' respectively, it reads the existing list from the file,
+'load_from_json_file' from modules 'save_to_json_file' and
+'load_from_json_file' respectively, it reads the existing list from the file,
 appends the new items (arguments given to the script), and saves the updated
 list back into the same JSON file.
 
@@ -17,8 +17,8 @@ executions without losing the previous state.
 
 import sys
 # Import the necessary functions from their respective modules.
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+from save_to_json_file import save_to_json_file
+from load_from_json_file import load_from_json_file
 
 # The JSON file where the list will be stored and updated.
 filename = "add_item.json"
