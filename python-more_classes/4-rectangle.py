@@ -5,6 +5,7 @@ with methods to calculate its area and perimeter,
 and to represent it as a string using the "#" character.
 """
 
+
 class Rectangle:
     """
     A class to represent a rectangle.
