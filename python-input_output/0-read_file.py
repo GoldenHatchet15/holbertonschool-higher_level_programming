@@ -1,11 +1,19 @@
 #!/usr/bin/python3
+"""
+This module provides a function read_file that reads a text file and prints
+its content to the standard output. It demonstrates basic file handling in
+Python, adhering to PEP 8 styling guidelines.
+"""
 
 def read_file(filename=""):
-    """Reads a text file (UTF-8) and prints it to stdout."""
+    """
+    Reads a text file (UTF-8) and prints it to stdout.
+    
+    Parameters:
+    filename (str): The name of the file to be read. Defaults to an empty string.
+    
+    Returns:
+    None
+    """
     with open(filename, 'r', encoding='utf-8') as f:
         print(f.read(), end='')
-
-# This block below is for testing
-# You can use it to test the function
-if __name__ == "__main__":
-    read_file("my_file_0.txt")
