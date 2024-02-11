@@ -1,19 +1,37 @@
 #!/usr/bin/python3
-import sys
+"""
+This module extends the functionality of previous tasks to implement a script
+that dynamically adds command-line arguments to a persistent list stored in
+a JSON file ("add_item.json").
 
-# Save_to_json_fileand load_from_json_file are defined in the following modules
+Utilizing the previously defined functions 'save_to_json_file' and
+'load_from_json_file' from modules '5-save_to_json_file' and
+'6-load_from_json_file' respectively, it reads the existing list from the file,
+appends the new items (arguments given to the script), and saves the updated
+list back into the same JSON file.
+
+If "add_item.json" does not exist, it will be created on the first run. This
+approach provides a simple way to accumulate data over time from script
+executions without losing the previous state.
+"""
+
+import sys
+# Import the necessary functions from their respective modules.
 from 5-save_to_json_file import save_to_json_file
 from 6-load_from_json_file import load_from_json_file
 
+# The JSON file where the list will be stored and updated.
 filename = "add_item.json"
 
 try:
+    # Attempt to load the existing data from the JSON file.
     items = load_from_json_file(filename)
 except FileNotFoundError:
+    # If the file doesn't exist, start with an empty list.
     items = []
 
-# Add all arguments except the first one (script name) to the list
+# Extend the current list with command-line arguments (excluding the script name).
 items.extend(sys.argv[1:])
 
-# Save the updated list back to the file
+# Save the updated list back to the JSON file, preserving the additions.
 save_to_json_file(items, filename)
