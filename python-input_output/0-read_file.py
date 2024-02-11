@@ -5,13 +5,14 @@ its content to the standard output. It demonstrates basic file handling in
 Python, adhering to PEP 8 styling guidelines.
 """
 
+
 def read_file(filename=""):
     """
     Reads a text file (UTF-8) and prints it to stdout.
-    
+
     Parameters:
-    filename (str): The name of the file to be read. Defaults to an empty string.
-    
+    filename (str): The name of file to be read. Defaults to an empty string.
+
     Returns:
     None
     """
