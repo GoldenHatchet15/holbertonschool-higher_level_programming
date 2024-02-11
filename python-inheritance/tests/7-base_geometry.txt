@@ -1,0 +1,43 @@
+First import method to test
+===========================
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+SUCCESS CASES:
+=============
+
+Test valid integer validation
+::
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12) # Should not raise an exception
+    >>> bg.integer_validator("width", 89) # Should not raise an exception
+
+FAIL CASES:
+==========
+
+Test string instead of integer (should raise TypeError)
+::
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+Test zero as value (should raise ValueError)
+::
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+Test negative value (should raise ValueError)
+::
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: distance must be greater than 0
+
+Test method area not implemented (should raise Exception)
+::
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
