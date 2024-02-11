@@ -38,7 +38,7 @@ This project is part of the Holberton School Higher Level Programming curriculum
 
 ## Installation
 Clone this repository to your local machine:
-git clone https://github.com/your-github-username/your-repository.git
+git clone https://github.com/GoldenHatchet15/holbertonschool-higher_level_programming.git
 
 
 ## Usage
