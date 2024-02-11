@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+"""
+This module defines a function from_json_string that converts a JSON string
+into a Python object. Leveraging the json module's loads method, it showcases
+how to parse JSON formatted strings back into Python data structures, such as
+dictionaries and lists, facilitating data interchange between systems or
+within different parts of a program.
+"""
+
+import json
+
+
+def from_json_string(my_str):
+    """
+    Returns an object (Python data structure) represented by a JSON string.
+
+    Args:
+        my_str (str): The JSON string to deserialize.
+
+    Returns:
+        The Python object resulting from the deserialization of my_str.
+    """
+    return json.loads(my_str)
