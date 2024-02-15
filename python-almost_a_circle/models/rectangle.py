@@ -95,14 +95,14 @@ class Rectangle(Base):
 
 
      def update(self, *args, **kwargs):
-        """Update the class
-        Rectangle by assigning an argument to each attribute."""
-        attributes = ['id', 'width', 'height', 'x', 'y']
-        if args and len(args) > 0:
-            for attr, value in zip(attributes, args):
-                setattr(self, attr, value)
-        elif kwargs:
-            for key, value in kwargs.items():
-                if key in attributes:
-                    setattr(self, key, value)
+         """Update the class
+         Rectangle by assigning an argument to each attribute."""
+         attributes = ['id', 'width', 'height', 'x', 'y']
+         if args and len(args) > 0:
+             for attr, value in zip(attributes, args):
+                 setattr(self, attr, value)
+         elif kwargs:
+             for key, value in kwargs.items():
+                 if key in attributes:
+                     setattr(self, key, value)
 
