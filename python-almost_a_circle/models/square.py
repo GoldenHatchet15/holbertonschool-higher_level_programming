@@ -33,18 +33,34 @@ class Square(Rectangle):
         """Return the string representation of the Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
-    def update(self, *args, **kwargs):
+#    def update(self, *args, **kwargs):
+#        """Update the Square attributes."""
+#        attrs = ['id', 'size', 'x', 'y']
+#        if args and len(args) > 0:
+#            for attr, value in zip(attrs, args):
+#                if hasattr(self, attr):
+#                    setattr(self, attr, value)
+#        else:
+#            for key, value in kwargs.items():
+#                if hasattr(self, key):
+#                    setattr(self, key, value)
+
+     def update(self, *args, **kwargs):
         """Update the Square attributes."""
-        attrs = ['id', 'size', 'x', 'y']
         if args and len(args) > 0:
-            for attr, value in zip(attrs, args):
+            attrs = ['id', 'size', 'x', 'y']
+            for attr, arg in zip(attrs, args):
                 if hasattr(self, attr):
-                    setattr(self, attr, value)
+                    setattr(self, attr, arg)
         else:
             for key, value in kwargs.items():
                 if hasattr(self, key):
-                    setattr(self, key, value)
-
+                    # Special handling for 'size' to ensure it sets both width and height
+                    if key == 'size':
+                        self.size = value
+                    else:
+                        setattr(self, key, value)
+                    
     def to_dictionary(self):
         """Return the dictionary representation of a Square."""
         return {'id': self.id, 'x': self.x, 'y': self.y, 'size': self.size}
