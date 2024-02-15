@@ -92,6 +92,24 @@ class Base:
         new_obj.update(**dictionary)
         return new_obj
 
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """Return an instance with all attributes already set.
+        Args:
+            **dictionary (dict): A dictionary of attributes to set.
+        Returns:
+            instance: An instance of cls with attributes set according to dictionary.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = cls()
+        dummy.update(**dictionary)
+        return dummy
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serialize a list of objects to a CSV file."""
