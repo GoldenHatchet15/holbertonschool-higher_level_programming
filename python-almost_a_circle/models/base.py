@@ -94,6 +94,20 @@ class Base:
                 writer.writerow(obj.to_dictionary())
 
     @classmethod
+    def save_to_file(cls, list_objs):
+        """Write the JSON string representation of list_objs to a file.
+        Args:
+            list_objs (list): A list of instances that inherit from Base.
+        """
+        filename = "{}.json".format(cls.__name__)
+        list_dicts = []
+        if list_objs is not None:
+            for obj in list_objs:
+                list_dicts.append(obj.to_dictionary())
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(list_dicts))
+
+    @classmethod
     def load_from_file_csv(cls):
         """Deserialize a list of objects from a CSV file."""
         filename = '{}.csv'.format(cls.__name__)

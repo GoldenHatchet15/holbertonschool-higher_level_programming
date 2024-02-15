@@ -98,15 +98,15 @@ class Square(Rectangle):
 #        }
 
 
-   # def to_dictionary(self):
-   #     """
-   #         Returns the dictionary representation of a Square
-   #     """
-   #     return {'id': getattr(self, "id"),
-   #             'size': getattr(self, "width"),
-   #             'x': getattr(self, "x"),
-   #             'y': getattr(self, "y")}
-
     def to_dictionary(self):
-        """Return the dictionary representation of a Square."""
-        return {'id': self.id, 'x': self.x, 'y': self.y, 'size': self.size}
+        """
+            Returns the dictionary representation of a Square
+        """
+        return {'id': getattr(self, "id"),
+                'size': getattr(self, "width"),
+                'x': getattr(self, "x"),
+                'y': getattr(self, "y")}
+
+   # def to_dictionary(self):
+    #    """Return the dictionary representation of a Square."""
+     #   return {'id': self.id, 'x': self.x, 'y': self.y, 'size': self.size}
