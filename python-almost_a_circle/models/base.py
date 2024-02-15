@@ -79,6 +79,21 @@ class Base:
             return [cls.create(**d) for d in cls.from_json_string(f.read())]
 
     @classmethod
+    def load_from_file(cls):
+        """Return a list of instances from a file."""
+        filename = "{}.json".format(cls.__name__)
+        if not path.isfile(filename):
+            return []
+
+        with open(filename, "r", encoding="utf-8") as f:
+            list_dictionaries = cls.from_json_string(f.read())
+
+        list_instances = []
+        for dictionary in list_dictionaries:
+            list_instances.append(cls.create(**dictionary))
+        return list_instances
+
+    @classmethod
     def create(cls, **dictionary):
         """Return an instance with all attributes already set."""
         from models.rectangle import Rectangle
