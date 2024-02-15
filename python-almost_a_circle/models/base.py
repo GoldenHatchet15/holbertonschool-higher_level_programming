@@ -34,6 +34,19 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """Return the list of the JSON string representation json_string.
+        Args:
+            json_string (str): A string representing a list of dictionaries.
+        Returns:
+            list: The list represented by json_string.
+        """
+        if json_string is None or json_string == "":
+            return []
+        return loads(json_string)
+    
+        
+    @staticmethod
+    def from_json_string(json_string):
         """Deserialize a JSON string to a list of dictionaries.
         Args:
             json_string (str): A string representing a list of dictionaries.
