@@ -32,6 +32,19 @@ class Square(Rectangle):
     def __str__(self):
         """Return the string representation of the Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+
+#    def update(self, *args, **kwargs):
+#        """Update the Square attributes."""
+#        attrs = ['id', 'size', 'x', 'y']
+#        if args and len(args) > 0:
+#            for attr, value in zip(attrs, args):
+#                if hasattr(self, attr):
+#                    setattr(self, attr, value)
+#        else:
+#            for key, value in kwargs.items():
+#                if hasattr(self, key):
+#                    setattr(self, key, value)
+
     
     def update(self, *args, **kwargs):
         """Update the Square.
@@ -73,6 +86,16 @@ class Square(Rectangle):
                 elif k == "y":
                     self.y = v
                     
+#    def to_dictionary(self):
+#        """Return the dictionary representation of a Square."""
+#        return {'id': self.id, 'x': self.x, 'y': self.y, 'size': self.size}
+
     def to_dictionary(self):
-        """Return the dictionary representation of a Square."""
-        return {'id': self.id, 'x': self.x, 'y': self.y, 'size': self.size}
+        """Return the dictionary representation of a Rectangle."""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
