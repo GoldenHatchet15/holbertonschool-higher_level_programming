@@ -18,15 +18,11 @@ if __name__ == '__main__':
 
     cur = db.cursor()
     # Execute the query
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    cur.execute("SELECT * FROM states")
 
     rows = cur.fetchall()
 
     # Iterate over and print each row
     for row in rows:
         print(row)
-
-    # Close the cursor and database connection
-    cur.close()
-    db.close()
 
