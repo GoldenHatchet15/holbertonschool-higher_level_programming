@@ -9,14 +9,14 @@ from model_state import Base, State
 import sys
 
 if __name__ == "__main__":
-    # Create an engine that connects to the given database URL
-    engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}', pool_pre_ping=True)
-    
-    # Bind the engine to the metadata of the Base class so that the
-    # declaratives can be accessed through a DBSession instance
+    # Connect to the given database URL
+    engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:'
+                           f'{sys.argv[2]}@localhost/{sys.argv[3]}',
+                           pool_pre_ping=True)
+    # Bind the engine to the metadata of the Base class
     Base.metadata.create_all(engine)
 
-    # Create a DBSession() instance to establish all conversations with the database
+    # Create a DBSession instance
     Session = sessionmaker(bind=engine)
     session = Session()
 
