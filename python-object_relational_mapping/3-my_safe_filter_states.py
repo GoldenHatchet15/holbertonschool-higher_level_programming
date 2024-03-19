@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 This module takes in an argument and displays all values in the
-`states` table of `hbtn_0e_0_usa` where `name` matches the argument,
-safeguarding against SQL injection.
+`states` table of `hbtn_0e_0_usa` where `name` matches the argument.
+It is safe from MySQL injections as it uses parameterized queries.
 """
 
 import MySQLdb
@@ -32,3 +32,4 @@ if __name__ == "__main__":
     # Close the cursor and connection to the database
     cur.close()
     db.close()
+
