@@ -10,29 +10,24 @@ from sys import argv
 
 if __name__ == "__main__":
     # Connect to the MySQL database
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+    db = MySQLdb.connect(host="localhost", user=argv[1],
                          passwd=argv[2], db=argv[3])
 
     # Create a cursor object
-    with db.cursor() as cur:
-        cur.execute("""
-            SELECT
-                *
-            FROM
-                states
-            WHERE
-                name LIKE BINARY %(name)s
-            ORDER BY
-                states.id ASC
-        """, {
-            'name': argv[4]
-        })
-        # Fetch all the results of the query
-        rows = cur.fetchall()
+    cur = db.cursor()
+
+    # Prepare a parameterized query
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+
+    # Execute the query with the user input as a parameter
+    cur.execute(query, (argv[4],))
+
+    # Fetch all the results of the query
+    rows = cur.fetchall()
+
     # Print each row
-    if rows is not None:
-        for row in rows:
-            print(row)
+    for row in rows:
+        print(row)
 
     # Close the cursor and connection to the database
     cur.close()
