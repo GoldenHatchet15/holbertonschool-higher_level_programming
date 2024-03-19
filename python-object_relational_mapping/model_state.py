@@ -7,12 +7,14 @@ from sqlalchemy import Column, Integer, String, create_engine
 
 Base = declarative_base()
 
+
 class State(Base):
     """State class that inherits from Base, links to the MySQL table states,
     and has id and name attributes."""
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
+
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
