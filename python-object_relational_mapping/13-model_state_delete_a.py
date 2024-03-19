@@ -10,27 +10,20 @@ from model_state import Base, State
 import sys
 
 if __name__ == "__main__":
-    # Define the database connection details
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
+    # Connect to the database
+    engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}' +
+                           f'@localhost/{sys.argv[3]}', pool_pre_ping=True)
 
-    # Connect to the given database URL
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name),
-                           pool_pre_ping=True)
-
-    # Bind the engine to the metadata of the Base class
     Base.metadata.create_all(engine)
 
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query for all State objects with a name containing the letter 'a'
-    states_to_delete = {
-        session.query(State).filter(State.name.like('%a%')).all()
-    }
+    # Query for all State objects with a name containing 'a'
+    states_to_delete = session.query(State)\
+        .filter(State.name.like('%a%'))\
+        .all()
 
     # Delete those objects
     for state in states_to_delete:
