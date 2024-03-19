@@ -16,7 +16,8 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Form the SQL query with the user input
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(argv[4])
+    query = ("SELECT * FROM states WHERE name = '{}' "
+             "ORDER BY id ASC").format(argv[4])
 
     # Execute the query
     cur.execute(query)
