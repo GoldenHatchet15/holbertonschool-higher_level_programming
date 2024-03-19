@@ -26,4 +26,6 @@ if __name__ == "__main__":
     for row in query_rows:
         print(row)
 
-    
+    # Close the cursor and connection to the database
+    cur.close()
+    conn.close()
