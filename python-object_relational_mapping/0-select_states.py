@@ -21,7 +21,3 @@ if __name__ == "__main__":
     # Print query
     for row in query_rows:
         print(row)
-
-    # Close cursor
-    cur.close()
-    conn.close()
